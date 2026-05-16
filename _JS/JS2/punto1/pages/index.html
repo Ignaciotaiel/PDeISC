@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔢 Registro de Números</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+    <header class="bg-primary text-white py-4 mb-4">
+        <div class="container text-center">
+            <h1 class="display-4">🔢 Registro de Números</h1>
+            <p class="lead">Ingresá números enteros entre 1 y 999 para generar un reporte.</p>
+        </div>
+    </header>
+
+    <main class="container-fluid px-4">
+        <div class="row">
+            <div class="col-12">
+                
+                <!-- 1. Tarjeta de Entrada -->
+                <div class="card mb-4">
+                    <div class="card-header bg-body-tertiary">
+                        <h5 class="mb-0">Carga de Datos</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-numero" novalidate class="row g-3 align-items-end">
+                            <div class="col-md-9">
+                                <label for="input-numero" class="form-label">Ingresá un número:</label>
+                                <input type="number" 
+                                       id="input-numero" 
+                                       class="form-control form-control-lg" 
+                                       required 
+                                       min="1" 
+                                       max="999" 
+                                       step="1"
+                                       placeholder="Ej: 42">
+                                <div class="invalid-feedback" id="feedback-error"></div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" id="btn-agregar" class="btn btn-success btn-lg w-100">Agregar Número</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Columna Izquierda: Lista -->
+                    <div class="col-md-8">
+                        <div class="card h-100">
+                            <div class="card-header bg-body-tertiary d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Números Ingresados</h5>
+                                <span id="contador-texto" class="badge bg-primary fs-6">0 números cargados</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul id="lista-numeros" class="list-group list-group-flush scroll-list" style="max-height: 500px; overflow-y: auto;">
+                                    <!-- Los números se agregan aquí dinámicamente -->
+                                </ul>
+                                <div id="lista-vacia" class="p-5 text-center text-muted">
+                                    <h4 class="display-6">Aún no se han ingresado números.</h4>
+                                    <p>Los números aparecerán aquí a medida que los agregues.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Acciones y Estado -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header bg-info text-white text-center">
+                                <h5 class="mb-0">Acciones Disponibles</h5>
+                            </div>
+                            <div class="card-body d-grid gap-3">
+                                <button id="btn-guardar" class="btn btn-primary btn-lg py-3" disabled>
+                                    🚀 Finalizar y Guardar Todo
+                                </button>
+                                <button id="btn-descargar-server" class="btn btn-outline-info d-none">
+                                    📥 Descargar copia del servidor
+                                </button>
+                                <button id="btn-reiniciar" class="btn btn-outline-danger" disabled>
+                                    🔄 Reiniciar Formulario
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="text-info border-bottom pb-2">Resumen</h6>
+                                <p class="mb-1">Mínimo requerido: <strong>10 números</strong></p>
+                                <p class="mb-0">Máximo permitido: <strong>20 números</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5 py-4 text-center text-muted border-top">
+        <div class="container">
+            <p>&copy; 2026 Registro de Números - Aplicación Profesional Node.js</p>
+        </div>
+    </footer>
+
+    <!-- Área de Notificaciones (Toasts) -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast-titulo">Notificación</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-mensaje"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Edición -->
+    <div class="modal fade" id="modalEdicion" tabindex="-1" aria-labelledby="modalEdicionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEdicionLabel">Editar Número</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="input-editar" class="form-label">Nuevo valor:</label>
+                        <input type="number" id="input-editar" class="form-control" min="1" max="999" step="1">
+                        <div class="invalid-feedback" id="feedback-error-edit"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btn-confirmar-edicion" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Eliminación -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="modalEliminarLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres eliminar este número? Esta acción no se puede deshacer.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btn-confirmar-eliminar" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

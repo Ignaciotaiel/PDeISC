@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📂 Filtrador de Números</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+    <header class="bg-dark text-white py-4 mb-4">
+        <div class="container text-center">
+            <h1 class="display-4">📂 Filtrador de Números</h1>
+            <p class="lead">Cargá un archivo .txt para filtrar números donde el <strong>primer dígito sea igual al último</strong>.</p>
+        </div>
+    </header>
+
+    <main class="container-fluid px-4">
+        <div class="row">
+            <div class="col-12">
+                
+                <!-- 1. Tarjeta de Carga -->
+                <div class="card" id="card-carga">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Selección de Archivo</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="form-upload" novalidate class="row g-3 align-items-end">
+                            <div class="col-md-9">
+                                <label for="input-archivo" class="form-label">Elegí un archivo de texto (.txt):</label>
+                                <input type="file" 
+                                       id="input-archivo" 
+                                       class="form-control form-control-lg" 
+                                       accept=".txt" 
+                                       required>
+                                <div class="invalid-feedback" id="feedback-archivo"></div>
+                                <div id="filename-preview" class="form-text mt-2 d-none">
+                                    Archivo seleccionado: <strong id="selected-name"></strong>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" id="btn-procesar" class="btn btn-primary btn-lg w-100">
+                                    <span id="spinner-load" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    Procesar Archivo
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contenedor de Resultados (Oculto al inicio) -->
+                <div id="container-resultados" class="d-none">
+                    <div class="row">
+                        <!-- Estadísticas y Acciones (Columna Izquierda) -->
+                        <div class="col-md-4">
+                            <!-- 2. Tarjeta de Estadísticas -->
+                            <div class="card shadow-sm mb-4" id="card-estadisticas">
+                                <div class="card-header bg-info text-white">
+                                    <h5 class="mb-0">Estadísticas</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <div class="text-center">
+                                            <h4 id="stat-total">0</h4>
+                                            <small class="text-muted">Total</small>
+                                        </div>
+                                        <div class="text-center">
+                                            <h4 id="stat-utiles" class="text-success">0</h4>
+                                            <small class="text-muted">Útiles</small>
+                                        </div>
+                                        <div class="text-center">
+                                            <h4 id="stat-descartados" class="text-danger">0</h4>
+                                            <small class="text-muted">Descartados</small>
+                                        </div>
+                                    </div>
+                                    <div class="progress mb-2" style="height: 25px;">
+                                        <div id="bar-utiles" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                        <div id="bar-descartados" class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between small fw-bold">
+                                        <span class="text-success" id="label-utiles">Útiles: 0%</span>
+                                        <span class="text-danger" id="label-descartados">Descartados: 0%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 4. Tarjeta de Acciones -->
+                            <div class="card shadow-sm" id="card-acciones">
+                                <div class="card-body d-grid gap-2">
+                                    <button id="btn-guardar-dual" class="btn btn-success btn-lg py-3">
+                                        💾 Guardar Resultado
+                                    </button>
+                                    <button id="btn-reiniciar" class="btn btn-outline-secondary">
+                                        🔄 Procesar Otro Archivo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listas de Resultados (Columna Derecha) -->
+                        <div class="col-md-8">
+                            <div class="card shadow-sm" id="card-resultados">
+                                <div class="card-header bg-light">
+                                    <h5 class="mb-0">Detalle de Filtrado</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 border-end">
+                                            <h6 class="text-success d-flex justify-content-between align-items-center mb-3">
+                                                Útiles
+                                                <span class="badge bg-success rounded-pill" id="badge-utiles">0</span>
+                                            </h6>
+                                            <div class="scroll-list" style="max-height: 500px; overflow-y: auto;">
+                                                <ul id="lista-utiles" class="list-group list-group-flush"></ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="text-danger d-flex justify-content-between align-items-center mb-3">
+                                                Descartados
+                                                <span class="badge bg-danger rounded-pill" id="badge-descartados">0</span>
+                                            </h6>
+                                            <div class="scroll-list" style="max-height: 500px; overflow-y: auto;">
+                                                <ul id="lista-descartados" class="list-group list-group-flush"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Listado de Archivos del Servidor -->
+                <div class="row mt-4" id="section-archivos-servidor">
+                    <div class="col-12">
+                        <div class="card shadow-sm border-0 bg-body-tertiary">
+                            <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">📁 Archivos Disponibles en el Servidor</h5>
+                                <button id="btn-actualizar-archivos" class="btn btn-sm btn-light">🔄 Actualizar</button>
+                            </div>
+                            <div class="card-body">
+                                <div id="lista-archivos-servidor" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
+                                    <!-- Los archivos del servidor se cargarán aquí -->
+                                </div>
+                                <div id="mensaje-sin-archivos" class="text-center p-4 d-none">
+                                    <p class="text-muted mb-0">No hay archivos procesados en el servidor actualmente.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5 py-4 text-center text-muted border-top">
+        <div class="container">
+            <p>&copy; 2026 Filtrador de Números - Aplicación Profesional Node.js</p>
+        </div>
+    </footer>
+
+    <!-- Área de Notificaciones (Toasts) -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast-titulo">Notificación</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-mensaje"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Eliminación de Archivo del Servidor -->
+    <div class="modal fade" id="modalBorrarArchivo" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">¿Eliminar archivo permanentemente?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Estás por borrar <strong id="nombre-archivo-borrar"></strong> del servidor. Esta acción no se puede deshacer.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="btn-confirmar-borrar-archivo" class="btn btn-danger">Sí, eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="/scripts/main.js?v=3"></script>
+</body>
+</html>

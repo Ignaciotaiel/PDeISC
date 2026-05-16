@@ -1,0 +1,15 @@
+REPORTE FILTRADO - 16/5/2026, 02:51:36
+
+ÚTILES:
+1. 2
+2. 5
+3. 55
+4. 232
+5. 424
+6. 656
+7. 767
+
+ESTADÍSTICAS:
+Total: 10
+Útiles: 7 (70.00%)
+Descartados: 3

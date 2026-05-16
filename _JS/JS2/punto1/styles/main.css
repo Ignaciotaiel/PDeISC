@@ -1,0 +1,80 @@
+/* Variables para el tema */
+:root {
+    --transition-speed: 0.3s;
+}
+
+/* Transiciones suaves para el cambio de tema */
+body {
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Animación para los elementos de la lista */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-group-item-animated {
+    animation: fadeInSlide 0.4s ease-out forwards;
+}
+
+/* Estilos para el botón de tema (el resto se maneja en JS) */
+#theme-toggle-btn {
+    transition: transform 0.2s;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+#theme-toggle-btn:active {
+    transform: scale(0.9);
+}
+
+/* Ajustes para las tarjetas */
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+/* Contenedor de Toasts */
+.toast-container {
+    z-index: 2000;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Footer informativo */
+footer {
+    padding: 2rem 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-bs-theme="dark"] footer {
+    border-top-color: rgba(255,255,255,0.1);
+}

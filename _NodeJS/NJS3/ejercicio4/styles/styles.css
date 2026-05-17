@@ -1,0 +1,169 @@
+/**
+ * @proyecto     DOM Explorer - Ejercicio 4
+ * @archivo      styles.css
+ * @descripcion  Hoja de estilos para el ejercicio de creación y modificación
+ *               de nodos <a>. Define el tema oscuro, las cards de enlaces con
+ *               animación slide-in, el panel de historial de cambios con
+ *               diferencias visuales (viejo/nuevo) y los botones de acción.
+ * @autor        Taiel
+ * @version      1.0
+ * @fecha        2026-04-20
+ *
+ * @dependencias Bootstrap 5 (se carga vía CDN en el HTML),
+ *               Google Fonts: Inter y Fira Code
+ * @notas        Los colores --danger y --success se usan en el panel de logs
+ *               para diferenciar valores anteriores (tachados en rojo) de
+ *               valores nuevos (resaltados en verde).
+ */
+
+/* ── Variables globales ── */
+:root[data-theme="dark"] {
+  --bg-dark: #0f0f1a;       /* Fondo principal de toda la página */
+  --card-bg: #252547;       /* Fondo de las cards y paneles */
+  --accent-violet: #7c3aed; /* Color de acento principal, botones y badges */
+  --accent-cyan: #06b6d4;   /* Color de acento secundario, enlaces y títulos */
+  --text-main: #e2e8f0;     /* Color del texto principal */
+  --text-muted: #a0aec0;    /* Color del texto secundario y placeholders */
+  --card-border: rgba(124, 58, 237, 0.3); /* Borde semitransparente de las cards */
+  --danger: #ef4444;         /* Rojo para valores eliminados/anteriores en el log */
+  --success: #10b981;        /* Verde para valores nuevos en el log */
+  --transition-speed: 0.3s;
+}
+
+:root[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --card-bg: #ffffff;
+  --accent-violet: #6d28d9;
+  --accent-cyan: #0891b2;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-border: rgba(109, 40, 217, 0.2);
+  --danger: #dc2626;
+  --success: #059669;
+  --transition-speed: 0.3s;
+}
+
+/* ── Reset y base ── */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px; /* Compensa la altura del navbar fijo */
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.code-font { font-family: 'Fira Code', monospace; }
+
+/* ── Navbar ── */
+.navbar { background-color: var(--card-bg) !important; border-bottom: 2px solid var(--accent-violet); }
+.navbar-brand { color: var(--accent-cyan) !important; font-weight: 800; }
+
+/* ── Cards generales ── */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+}
+
+.card label,
+.card .text-muted,
+.card small,
+.card h6 {
+  color: var(--text-muted) !important;
+}
+
+.card h1, .card h2, .card h3, .card h4, .card h5 {
+  color: var(--text-main);
+}
+
+/* ── Cards de enlaces ── */
+.link-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.link-card:hover {
+  transform: translateX(10px); /* Desplazamiento sutil al pasar el mouse */
+  border-color: var(--accent-cyan);
+}
+
+.link-card a {
+  text-decoration: none;
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* Badge con el número de orden de creación */
+.link-card .badge-order {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--accent-violet);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* ── Panel de historial de cambios (logs) ── */
+.log-container {
+  background: #05050a;
+  border-radius: 10px;
+  padding: 1rem;
+  height: 600px;
+  overflow-y: auto; /* Scroll cuando el historial crece */
+}
+
+.log-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+
+.log-old { color: var(--danger); text-decoration: line-through; }  /* Valor anterior tachado */
+.log-new { color: var(--success); font-weight: bold; }             /* Valor nuevo resaltado */
+
+/* ── Animaciones y transiciones ── */
+.highlight {
+  animation: highlightPulse 1.5s ease-out; /* Pulso cian al modificar un enlace */
+}
+
+@keyframes highlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(6, 182, 212, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out forwards; /* Entrada deslizante desde la izquierda */
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Botones ── */
+.btn-custom {
+  background: transparent;
+  color: var(--accent-violet);
+  border: 1px solid var(--accent-violet);
+  transition: all 0.2s;
+}
+.btn-custom:hover:not(:disabled) { background: var(--accent-violet); color: white; }

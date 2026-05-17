@@ -1,0 +1,129 @@
+/**
+ * @proyecto     DOM Explorer - Ejercicio 5
+ * @archivo      styles.css
+ * @descripcion  Hoja de estilos para el ejercicio de inserción dinámica con
+ *               innerHTML. Define el tema oscuro, los estilos de las cards de
+ *               controles, los badges de numeración, la animación de entrada
+ *               slideDown, las tablas oscuras y los botones de acción.
+ * @autor        Taiel
+ * @version      1.0
+ * @fecha        2026-04-20
+ *
+ * @dependencias Bootstrap 5 (se carga vía CDN en el HTML),
+ *               Google Fonts: Inter y Fira Code
+ * @notas        La clase .content-item envuelve cada elemento insertado y le
+ *               agrega un badge posicionado en la esquina superior izquierda
+ *               para identificar el tipo y número de cada inserción.
+ */
+
+/* ── Variables globales ── */
+:root[data-theme="dark"] {
+  --bg-dark: #0f0f1a;       /* Fondo principal de toda la página */
+  --card-bg: #252547;       /* Fondo de las cards y paneles */
+  --accent-violet: #7c3aed; /* Color de acento principal */
+  --accent-cyan: #06b6d4;   /* Color de acento secundario */
+  --text-main: #e2e8f0;     /* Color del texto principal */
+  --text-muted: #a0aec0;    /* Color del texto secundario */
+  --card-border: rgba(124, 58, 237, 0.3); /* Borde de las cards */
+  --transition-speed: 0.3s;
+}
+
+:root[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --card-bg: #ffffff;
+  --accent-violet: #6d28d9;
+  --accent-cyan: #0891b2;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-border: rgba(109, 40, 217, 0.2);
+  --transition-speed: 0.3s;
+}
+
+/* ── Reset y base ── */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px; /* Compensa la altura del navbar fijo */
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.code-font { font-family: 'Fira Code', monospace; }
+
+/* ── Navbar ── */
+.navbar { background-color: var(--card-bg) !important; border-bottom: 2px solid var(--accent-violet); }
+.navbar-brand { color: var(--accent-cyan) !important; font-weight: 800; }
+
+/* ── Cards y panel de controles ── */
+.card, .controls-card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+}
+
+.card label,
+.card .text-muted,
+.card small,
+.card h6,
+.controls-card h5 {
+  color: var(--text-muted) !important;
+}
+
+.card h1, .card h2, .card h3, .card h4, .card h5 {
+  color: var(--text-main);
+}
+
+/* ── Elementos insertados dinámicamente ── */
+.content-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  animation: slideDownFade 0.5s ease-out forwards; /* Animación de entrada */
+}
+
+/* Badge que identifica tipo y número de cada ítem insertado */
+.item-badge {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  z-index: 10;
+  background: var(--accent-violet);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* ── Animaciones ── */
+@keyframes slideDownFade {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tabla con tema oscuro ── */
+.table-dark-custom {
+  background-color: #1a1a2e !important;
+  color: #e2e8f0 !important;
+}
+.table-dark-custom thead { background-color: #0f0f1a !important; }
+
+/* ── Botones ── */
+.btn-custom {
+  background: transparent;
+  color: var(--accent-violet);
+  border: 1px solid var(--accent-violet);
+  transition: all 0.2s;
+}
+.btn-custom:hover { background: var(--accent-violet); color: white; }
+
+/* Estilo del botón de confirmación "¿Seguro?" al limpiar todo */
+.btn-confirm {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}

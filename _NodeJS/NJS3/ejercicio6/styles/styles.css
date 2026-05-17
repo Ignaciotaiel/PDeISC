@@ -1,0 +1,165 @@
+/**
+ * @proyecto     DOM Explorer - Ejercicio 6
+ * @archivo      styles.css
+ * @descripcion  Hoja de estilos para el formulario de registro con previsualización
+ *               dinámica. Define el tema oscuro, los estilos del formulario con
+ *               inputs oscuros, la tarjeta de preview con avatar circular,
+ *               la barra de progreso del formulario y el overlay de éxito.
+ * @autor        Taiel
+ * @version      1.0
+ * @fecha        2026-04-20
+ *
+ * @dependencias Bootstrap 5 (se carga vía CDN en el HTML),
+ *               Google Fonts: Inter y Fira Code
+ * @notas        La tarjeta de preview es sticky (posición fija al hacer scroll)
+ *               para que el usuario siempre pueda ver los cambios mientras
+ *               completa el formulario largo.
+ */
+
+/* ── Variables globales ── */
+:root[data-theme="dark"] {
+  --bg-dark: #0f0f1a;       /* Fondo principal de toda la página */
+  --card-bg: #252547;       /* Fondo de las cards y paneles */
+  --accent-violet: #7c3aed; /* Color de acento principal */
+  --accent-cyan: #06b6d4;   /* Color de acento secundario */
+  --text-main: #e2e8f0;     /* Color del texto principal */
+  --text-muted: #a0aec0;    /* Color del texto secundario */
+  --card-border: rgba(124, 58, 237, 0.3); /* Borde de las cards */
+  --transition-speed: 0.3s;
+}
+
+:root[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --card-bg: #ffffff;
+  --accent-violet: #6d28d9;
+  --accent-cyan: #0891b2;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-border: rgba(109, 40, 217, 0.2);
+  --transition-speed: 0.3s;
+}
+
+/* ── Reset y base ── */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px; /* Compensa la altura del navbar fijo */
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.code-font { font-family: 'Fira Code', monospace; }
+
+/* ── Navbar ── */
+.navbar { background-color: var(--card-bg) !important; border-bottom: 2px solid var(--accent-violet); }
+.navbar-brand { color: var(--accent-cyan) !important; font-weight: 800; }
+
+/* ── Formulario ── */
+.form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+}
+
+.form-card label,
+.form-card .text-muted,
+.form-card small,
+.form-card h4 {
+  color: var(--text-muted) !important;
+}
+
+/* Inputs con fondo oscuro para mantener el tema */
+.form-control, .form-select {
+  background-color: #0f0f1a !important;
+  border-color: #334155 !important;
+  color: white !important;
+}
+
+/* Borde violeta al enfocar un campo para dar feedback visual */
+.form-control:focus, .form-select:focus {
+  border-color: var(--accent-violet) !important;
+  box-shadow: 0 0 0 0.25rem rgba(124, 58, 237, 0.25) !important;
+}
+
+/* ── Tarjeta de previsualización ── */
+.preview-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  position: sticky;
+  top: 90px; /* Se mantiene visible al hacer scroll */
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.preview-card label,
+.preview-card .text-muted,
+.preview-card small,
+.preview-card span {
+  color: var(--text-muted) !important;
+}
+
+.preview-card h3 {
+  color: var(--text-main);
+}
+
+/* Avatar circular con iniciales del usuario */
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, var(--accent-violet), var(--accent-cyan));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Barra de progreso del formulario ── */
+.progress-container {
+  height: 6px;
+  background: #0f0f1a;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-violet), var(--accent-cyan));
+  border-radius: 3px;
+  transition: width 0.4s ease; /* Transición suave al avanzar */
+}
+
+/* ── Overlay de éxito ── */
+#success-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(26, 26, 46, 0.95); /* Fondo oscuro semitransparente */
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  z-index: 100; /* Por encima de todo el contenido de la preview card */
+}
+
+/* ── Botones ── */
+.btn-custom {
+  background: transparent;
+  color: var(--accent-violet);
+  border: 1px solid var(--accent-violet);
+}
+.btn-custom:hover:not(:disabled) { background: var(--accent-violet); color: white; }
+.btn-custom:disabled { opacity: 0.5; cursor: not-allowed; }

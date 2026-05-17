@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Explorer - Ejercicio 1</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">DOM Explorer <span class="badge bg-violet ms-2">#1</span></a>
+      <div class="d-flex ms-auto">
+        <button id="themeToggle" class="btn btn-outline-light btn-sm">🌙 Modo Oscuro</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <div class="row g-4">
+      <!-- Panel de Control -->
+      <aside class="col-md-4">
+        <div class="card p-4">
+          <h3 class="card-title mb-4">Panel de Control</h3>
+          
+          <div class="d-grid gap-3">
+            <div>
+              <button id="btnAddH1" class="btn btn-custom w-100">Agregar H1</button>
+            </div>
+            <div>
+              <button id="btnChangeH1Text" class="btn btn-custom w-100" disabled>Cambiar texto H1</button>
+            </div>
+            <div>
+              <button id="btnChangeH1Color" class="btn btn-custom w-100" disabled>Cambiar color H1</button>
+              <div id="h1ColorStatus" class="mt-1 small text-center text-muted code-font">Color: -</div>
+            </div>
+            
+            <hr class="border-secondary">
+            
+            <div>
+              <button id="btnAddImg" class="btn btn-custom w-100">Agregar imagen</button>
+            </div>
+            <div>
+              <button id="btnChangeImg" class="btn btn-custom w-100" disabled>Cambiar imagen</button>
+            </div>
+            <div>
+              <button id="btnChangeImgSize" class="btn btn-custom w-100" disabled>Cambiar tamaño imagen</button>
+              <div class="text-center mt-1">
+                <span id="imgSizeBadge" class="badge bg-secondary code-font">Tamaño: -</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Área de Previsualización -->
+      <section class="col-md-8">
+        <div id="preview-area" class="card">
+          <!-- El contenido se generará dinámicamente -->
+          <p class="text-muted" id="empty-msg">El área de previsualización está vacía</p>
+        </div>
+        
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-0 text-muted">DOM Explorer Suite - Ejercicio 1 - Manipulación DHTML</p>
+      <small class="text-secondary">© 2026 Senior Full Stack Developer</small>
+    </div>
+  </footer>
+
+  <!-- Toasts Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="actionToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toastMessage"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/contexto/themeContext.js"></script>
+  <script type="module" src="/scripts/imagen.js"></script>
+  <script type="module" src="/scripts/h1.js"></script>
+</body>
+</html>

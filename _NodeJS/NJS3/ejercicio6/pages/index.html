@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Explorer - Ejercicio 6</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body data-theme="dark">
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">DOM Explorer <span class="badge bg-violet ms-2">#6</span></a>
+      <button id="themeToggle" class="btn btn-outline-light btn-sm ms-auto">🌙 Modo Oscuro</button>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <div class="row g-5">
+      <!-- Columna Formulario -->
+      <section class="col-lg-7">
+        <div class="form-card">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h4 class="text-violet mb-0">Registro de Usuario</h4>
+            <span id="progress-text" class="code-font small text-muted">0% completado</span>
+          </div>
+          <div class="progress-container">
+            <div id="form-progress" class="progress-fill" style="width: 0%"></div>
+          </div>
+
+          <div id="reg-form" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label small">Nombre</label>
+              <input type="text" id="name" class="form-control" placeholder="Ej: Juan" required minlength="3">
+              <div id="error-name" class="invalid-feedback">Mínimo 3 caracteres requeridos</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label small">Apellido</label>
+              <input type="text" id="lastname" class="form-control" placeholder="Ej: Pérez" required minlength="3">
+              <div id="error-lastname" class="invalid-feedback">Mínimo 3 caracteres requeridos</div>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label small">Edad</label>
+              <input type="number" id="age" class="form-control" placeholder="18" required min="1" max="120">
+              <div class="invalid-feedback">Edad entre 1 y 120</div>
+            </div>
+            <div class="col-md-8">
+              <label class="form-label small">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="juan@ejemplo.com" required>
+              <div id="error-email" class="invalid-feedback">Email inválido</div>
+            </div>
+            
+            <div class="col-12">
+              <label class="form-label d-block small">Género</label>
+              <div class="d-flex flex-wrap gap-3 mt-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="g-masc" value="Masculino">
+                  <label class="form-check-label small" for="g-masc">Masculino</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="g-fem" value="Femenino">
+                  <label class="form-check-label small" for="g-fem">Femenino</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="g-nb" value="No binario">
+                  <label class="form-check-label small" for="g-nb">No binario</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small">País</label>
+              <select id="country" class="form-select" required>
+                <option value="" selected disabled>Seleccionar...</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="México">México</option>
+                <option value="Colombia">Colombia</option>
+                <option value="España">España</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label d-block small">Intereses</label>
+              <div class="row g-2 mt-1">
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Música" id="i1"><label class="form-check-label small" for="i1">Música</label></div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Deportes" id="i2"><label class="form-check-label small" for="i2">Deportes</label></div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Tecnología" id="i3"><label class="form-check-label small" for="i3">Tecnología</label></div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Arte" id="i4"><label class="form-check-label small" for="i4">Arte</label></div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Viajes" id="i5"><label class="form-check-label small" for="i5">Viajes</label></div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check"><input class="form-check-input" type="checkbox" name="interest" value="Gastronomía" id="i6"><label class="form-check-label small" for="i6">Gastronomía</label></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small">Biografía</label>
+              <textarea id="bio" class="form-control" rows="3" maxlength="200" placeholder="Cuéntanos un poco sobre ti..."></textarea>
+              <div class="text-end mt-1"><small id="bio-count" class="text-muted code-font">0 / 200</small></div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <button id="btn-submit" class="btn btn-custom w-100 py-2" disabled>Registrar Usuario</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Columna Preview -->
+      <section class="col-lg-5">
+        <div class="preview-card" id="preview-container">
+          <div id="success-overlay">
+            <div class="text-center">
+              <h2 class="text-success mb-3">¡Éxito!</h2>
+              <p class="text-white mb-4">El registro se ha completado correctamente.</p>
+              <button id="btn-reset" class="btn btn-outline-cyan">Registrar otra persona</button>
+            </div>
+          </div>
+
+          <div class="avatar-circle" id="p-avatar">?</div>
+          <h3 class="text-center text-cyan mb-1" id="p-fullname">Nombre Apellido</h3>
+          <p class="text-center text-muted small mb-4" id="p-email">usuario@correo.com</p>
+          
+          <div class="row g-3">
+            <div class="col-6">
+              <small class="text-muted d-block">Edad</small>
+              <span class="code-font" id="p-age">-</span>
+            </div>
+            <div class="col-6">
+              <small class="text-muted d-block">País</small>
+              <span class="code-font" id="p-country">-</span>
+            </div>
+            <div class="col-6">
+              <small class="text-muted d-block">Género</small>
+              <span class="code-font" id="p-gender">-</span>
+            </div>
+            <div class="col-12">
+              <small class="text-muted d-block">Intereses</small>
+              <div id="p-interests" class="d-flex flex-wrap gap-1 mt-1">
+                <span class="badge bg-secondary">Ninguno</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <small class="text-muted d-block">Biografía</small>
+              <p class="small text-muted mb-0" id="p-bio">No se ha proporcionado una biografía todavía.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body">¡Registro exitoso!</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center">
+      <p class="mb-0 text-muted">DOM Explorer Suite - Ejercicio 6 - Formulario Dinámico</p>
+      <small class="text-secondary">© 2026 Senior Full Stack Developer</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js?v=2"></script>
+  <script type="module" src="/contexto/themeContext.js?v=2"></script>
+  <script type="module" src="/scripts/preview.js?v=2"></script>
+  <script type="module" src="/scripts/validacion.js?v=2"></script>
+  <script type="module" src="/scripts/main.js?v=2"></script>
+</body>
+</html>
+

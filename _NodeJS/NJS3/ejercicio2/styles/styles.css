@@ -1,0 +1,146 @@
+/**
+ * @proyecto     DOM Explorer - Ejercicio 2
+ * @archivo      styles.css
+ * @descripcion  Hoja de estilos principal del Ejercicio 2 (SPA con componentes).
+ *               Define el tema oscuro, la navegación lateral con pills, las
+ *               tarjetas de componentes, los estilos del contador, paleta,
+ *               animaciones y botones personalizados.
+ * @autor        Taiel
+ * @version      1.0
+ * @fecha        2026-04-20
+ *
+ * @dependencias Bootstrap 5 (se carga vía CDN en el HTML),
+ *               Google Fonts: Inter y Fira Code
+ * @notas        Estos estilos están pensados para una SPA donde el contenido
+ *               se reemplaza dinámicamente dentro de #component-container.
+ */
+
+/* ── Variables globales ── */
+:root[data-theme="dark"] {
+  --bg-dark: #0f0f1a;       /* Fondo principal de toda la página */
+  --card-bg: #252547;       /* Fondo de las cards y paneles */
+  --accent-violet: #7c3aed; /* Color de acento principal, botones y títulos */
+  --accent-cyan: #06b6d4;   /* Color de acento secundario, highlights */
+  --accent-orange: #f59e0b; /* Color terciario para badges y alertas */
+  --text-main: #e2e8f0;     /* Color del texto principal */
+  --text-muted: #a0aec0;    /* Color del texto secundario y placeholders */
+  --card-border: rgba(124, 58, 237, 0.3); /* Borde semitransparente de las cards */
+  --transition-speed: 0.3s; /* Duración estándar de las transiciones */
+}
+
+:root[data-theme="light"] {
+  --bg-dark: #f8fafc;
+  --card-bg: #ffffff;
+  --accent-violet: #6d28d9;
+  --accent-cyan: #0891b2;
+  --accent-orange: #d97706;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --card-border: rgba(109, 40, 217, 0.2);
+  --transition-speed: 0.3s;
+}
+
+/* ── Reset y base ── */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px; /* Compensa la altura del navbar fijo */
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.code-font { font-family: 'Fira Code', monospace; }
+
+/* ── Navbar ── */
+.navbar {
+  background-color: var(--card-bg) !important;
+  border-bottom: 2px solid var(--accent-violet);
+}
+.navbar-brand { color: var(--accent-cyan) !important; font-weight: 800; }
+.nav-link { color: var(--text-muted) !important; }
+.nav-link.active { color: var(--accent-violet) !important; }
+
+/* ── Navegación lateral (pills) ── */
+.nav-pills .nav-link {
+  color: var(--text-muted);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: all var(--transition-speed);
+  border: 1px solid transparent;
+}
+
+.nav-pills .nav-link:hover {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--accent-violet);
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--accent-violet) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4); /* Sombra violeta para resaltar el activo */
+}
+
+/* ── Área de contenido dinámico ── */
+#component-container {
+  min-height: 500px;
+  position: relative;
+}
+
+/* ── Cards de componentes ── */
+.component-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  color: var(--text-main);
+  transition: opacity 0.3s ease;
+}
+
+.component-card label,
+.component-card .text-muted,
+.component-card small,
+.component-card .breadcrumb-item {
+  color: var(--text-muted) !important;
+}
+
+.component-card h1, .component-card h2, .component-card h3, .component-card h4, .component-card h5 {
+  color: var(--text-main);
+}
+
+/* ── Estilos del componente Contador ── */
+.counter-value { font-size: 4rem; font-weight: 800; color: var(--accent-cyan); }
+.progress { height: 1.5rem; background-color: #0f0f1a; border-radius: 10px; }
+.progress-bar { background: linear-gradient(90deg, var(--accent-violet), var(--accent-cyan)); transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+/* ── Estilos del componente Paleta ── */
+.swatch {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.swatch:hover { transform: scale(1.1); }
+.swatch.active { border-color: white; } /* Borde blanco indica el color seleccionado */
+
+/* ── Animaciones y transiciones ── */
+.fade-in { animation: fadeIn 0.4s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Footer ── */
+footer { background-color: var(--card-bg); padding: 1.5rem 0; margin-top: auto; border-top: 1px solid rgba(124, 58, 237, 0.1); }
+
+/* ── Botones ── */
+.btn-custom {
+  background: transparent;
+  color: var(--accent-violet);
+  border: 2px solid var(--accent-violet);
+  font-weight: 600;
+  transition: all var(--transition-speed);
+}
+.btn-custom:hover { background: var(--accent-violet); color: white; }

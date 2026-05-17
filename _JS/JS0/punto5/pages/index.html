@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 5 — splice()</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-body-tertiary">
+    <div class="container py-4 flex-grow-1">
+        <h1 class="mb-4">Punto 5 — <code>splice()</code></h1>
+        <div id="themeContainer" class="d-inline-block"></div>
+
+        <!-- ejercicio 5.1 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">5.1 — Eliminar desde la posición 1</h5>
+                <p class="card-text">Hace <code>splice(1, 2)</code> en el array de letras. Muestra los eliminados y el array resultante.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-51"></span></p>
+                <div id="alert-eliminardesdepos1" class="mb-2"></div>
+                <button id="btn-eliminardesdepos1" class="btn btn-primary">Eliminar posición 1 y 2</button>
+                <p id="resultado51" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 5.2 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">5.2 — Insertar en posición 2</h5>
+                <p class="card-text">Lee el input y lo inserta en la posición 2 usando <code>splice(2, 0, nombre)</code>.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-52"></span></p>
+                <input type="text" id="entradaNombre" class="form-control mb-2" placeholder="Escribí un nombre...">
+                <div id="alert-insertarenpos2" class="mb-2"></div>
+                <button id="btn-insertarenpos2" class="btn btn-primary">Insertar en posición 2</button>
+                <p id="resultado52" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 5.3 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">5.3 — Reemplazar colores</h5>
+                <p class="card-text">Hace <code>splice(1, 2, 'naranja', 'violeta')</code> en el array de colores.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-53"></span></p>
+                <div id="alert-reemplazarcolores" class="mb-2"></div>
+                <button id="btn-reemplazarcolores" class="btn btn-primary">Reemplazar posición 1 y 2</button>
+                <p id="resultado53" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

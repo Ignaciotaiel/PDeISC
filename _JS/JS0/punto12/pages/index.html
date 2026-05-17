@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 12 — reduce()</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-body-tertiary">
+    <div class="container py-4 flex-grow-1">
+        <h1 class="mb-4">Punto 12 — <code>reduce()</code></h1>
+        <div id="themeContainer" class="d-inline-block"></div>
+
+        <!-- ejercicio 12.1 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">12.1 — Sumar todo</h5>
+                <p class="card-text">Usa <code>reduce()</code> para sumar todos los números del array. Muestra el total.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-121"></span></p>
+                <div id="alert-sumartodo" class="mb-2"></div>
+                <button id="btn-sumartodo" class="btn btn-primary">Sumar todo</button>
+                <p id="resultado121" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 12.2 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">12.2 — Multiplicar todo</h5>
+                <p class="card-text">Usa <code>reduce()</code> para multiplicar todos los números del array (valor inicial 1). Muestra el total.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-122"></span></p>
+                <div id="alert-multiplicartodo" class="mb-2"></div>
+                <button id="btn-multiplicartodo" class="btn btn-primary">Multiplicar todo</button>
+                <p id="resultado122" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 12.3 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">12.3 — Calcular total de precios</h5>
+                <p class="card-text">Usa <code>reduce()</code> para sumar la propiedad <code>precio</code> de cada producto. Muestra el total.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-123"></span></p>
+                <div id="alert-calculartotalprecios" class="mb-2"></div>
+                <button id="btn-calculartotalprecios" class="btn btn-primary">Calcular total</button>
+                <p id="resultado123" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

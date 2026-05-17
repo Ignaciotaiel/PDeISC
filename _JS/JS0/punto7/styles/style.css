@@ -1,0 +1,36 @@
+/* FIXES: Moved to styles folder */
+:root {
+  --color-acento: #fd7e14;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header-proyecto {
+  background-color: var(--color-acento);
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card {
+  border: none;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.resultado-container {
+  background-color: #e9ecef;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--color-acento);
+  word-break: break-all;
+}

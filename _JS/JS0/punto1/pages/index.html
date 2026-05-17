@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 1 — push()</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-body-tertiary">
+    <div class="container py-4 flex-grow-1">
+        <h1 class="mb-4">Punto 1 — <code>push()</code></h1>
+        <div id="themeContainer" class="d-inline-block mb-4"></div>
+
+        <!-- ejercicio 1.1 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">1.1 — Agregar una fruta al array</h5>
+                <p class="card-text">Lee el input y agrega la fruta al array usando <code>push()</code>. Muestra el array actualizado.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-11"></span></p>
+                <div id="alert11" class="mb-2"></div>
+                <input type="text" id="entradaFruta" class="form-control mb-2" placeholder="Escribí una fruta...">
+                <button id="btn-fruta" class="btn btn-primary">Agregar fruta</button>
+                <p id="resultado11" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 1.2 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">1.2 — Agregar un amigo al array</h5>
+                <p class="card-text">Lee el input y agrega el nombre al array de amigos usando <code>push()</code>. Muestra el array actualizado.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-12"></span></p>
+                <div id="alert12" class="mb-2"></div>
+                <input type="text" id="entradaAmigo" class="form-control mb-2" placeholder="Escribí un nombre...">
+                <button id="btn-amigo" class="btn btn-primary">Agregar amigo</button>
+                <p id="resultado12" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 1.3 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">1.3 — Agregar solo si es mayor al último</h5>
+                <p class="card-text">Lee el input numérico. Si el valor es mayor al último del array, lo agrega con <code>push()</code>. Si no, muestra un mensaje.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-13"></span></p>
+                <div id="alert13" class="mb-2"></div>
+                <input type="number" id="entradaNumero" class="form-control mb-2" placeholder="Escribí un número...">
+                <button id="btn-numero" class="btn btn-primary">Intentar agregar</button>
+                <p id="resultado13" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

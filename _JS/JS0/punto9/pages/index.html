@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 9 — forEach()</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-body-tertiary">
+    <div class="container py-4 flex-grow-1">
+        <h1 class="mb-4">Punto 9 — <code>forEach()</code></h1>
+        <div id="themeContainer" class="d-inline-block"></div>
+
+        <!-- ejercicio 9.1 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">9.1 — Saludar a todos</h5>
+                <p class="card-text">Usa <code>forEach()</code> para generar un saludo por cada nombre del array.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-91"></span></p>
+                <div id="alert-generarsaludos" class="mb-2"></div>
+                <button id="btn-generarsaludos" class="btn btn-primary">Saludar a todos</button>
+                <p id="resultado91" class="mt-3 fw-bold" style="white-space: pre-line;"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 9.2 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">9.2 — Calcular dobles</h5>
+                <p class="card-text">Usa <code>forEach()</code> para construir un array con el doble de cada número.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-92"></span></p>
+                <div id="alert-calculardobles" class="mb-2"></div>
+                <button id="btn-calculardobles" class="btn btn-primary">Calcular dobles</button>
+                <p id="resultado92" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 9.3 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">9.3 — Mostrar personas</h5>
+                <p class="card-text">Usa <code>forEach()</code> para mostrar el nombre y la edad de cada persona.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-93"></span></p>
+                <div id="alert-mostrarpersonas" class="mb-2"></div>
+                <button id="btn-mostrarpersonas" class="btn btn-primary">Mostrar personas</button>
+                <p id="resultado93" class="mt-3 fw-bold" style="white-space: pre-line;"></p>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

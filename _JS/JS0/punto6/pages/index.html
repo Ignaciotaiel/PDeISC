@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto 6 — slice()</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="min-vh-100 d-flex flex-column bg-body-tertiary">
+    <div class="container py-4 flex-grow-1">
+        <h1 class="mb-4">Punto 6 — <code>slice()</code></h1>
+        <div id="themeContainer" class="d-inline-block"></div>
+
+        <!-- ejercicio 6.1 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">6.1 — Copiar los primeros 3 números</h5>
+                <p class="card-text">Hace <code>slice(0, 3)</code> en el array de números. Muestra la copia y el original (que no cambia).</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-61"></span></p>
+                <div id="alert-copiarprimerostres" class="mb-2"></div>
+                <button id="btn-copiarprimerostres" class="btn btn-primary">Copiar primeros 3</button>
+                <p id="resultado61" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 6.2 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">6.2 — Obtener películas de posición 2 a 4</h5>
+                <p class="card-text">Hace <code>slice(2, 5)</code> en el array de películas. Muestra la copia y el original.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-62"></span></p>
+                <div id="alert-copiarpeliculas" class="mb-2"></div>
+                <button id="btn-copiarpeliculas" class="btn btn-primary">Obtener posiciones 2 a 4</button>
+                <p id="resultado62" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+        <!-- ejercicio 6.3 -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">6.3 — Copiar los últimos 3 elementos</h5>
+                <p class="card-text">Hace <code>slice(-3)</code> en el array de elementos. Muestra la copia y el original.</p>
+                <p class="text-secondary mb-2 small"><strong>Estado inicial:</strong> <span id="estado-63"></span></p>
+                <div id="alert-copiarultimostres" class="mb-2"></div>
+                <button id="btn-copiarultimostres" class="btn btn-primary">Copiar últimos 3</button>
+                <p id="resultado63" class="mt-3 fw-bold"></p>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../scripts/app.js"></script>
+</body>
+</html>

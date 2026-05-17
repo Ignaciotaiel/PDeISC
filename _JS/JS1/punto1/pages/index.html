@@ -1,0 +1,137 @@
+<!-- FIXES: Replaced banking form with the 5 required fields (Name, Last name, Email, Phone, City), added theme toggle container, added 3 separate result cards for the 3 read methods, and added history list section. -->
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1 - Lectura de Datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body class="min-vh-100 bg-body-tertiary">
+    <div class="container py-5">
+        <!-- Theme Toggle -->
+        <div class="d-flex justify-content-end mb-4" id="theme-btn-container"></div>
+        
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="text-center mb-5">
+                    <i class="bi bi-journal-text text-primary display-1"></i>
+                    <h1 class="mt-3 text-primary">Registro de Usuario</h1>
+                    <p class="text-muted">Proyecto 1: Formas de leer datos en JavaScript</p>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Formulario -->
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-4 h-100">
+                            <div class="card-header bg-primary text-white rounded-top-4 py-3">
+                                <h5 class="mb-0"><i class="bi bi-person-plus-fill me-2"></i>Nuevo Registro</h5>
+                            </div>
+                            <div class="card-body p-4">
+                                <!-- Contenedor de alertas para feedback (no usar alert()) -->
+                                <div id="alert-container"></div>
+                                
+                                <form id="userForm" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label for="nombre" class="form-label">Nombre</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="apellido" class="form-label">Apellido</label>
+                                            <input type="text" class="form-control" id="apellido" name="apellido" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="telefono" class="form-label">Teléfono</label>
+                                            <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="ciudad" class="form-label">Ciudad</label>
+                                            <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <div class="col-12 mt-4">
+                                            <button type="submit" class="btn btn-primary btn-lg w-100" id="submitBtn" disabled>
+                                                <i class="bi bi-save me-2"></i>Guardar Usuario
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resultados de las 3 lecturas -->
+                    <div class="col-lg-7">
+                        <div class="row g-3" id="results-row">
+                            <div class="col-12">
+                                <div class="card shadow-sm border-0 border-start border-5 border-primary h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-primary fw-bold">1. Lectura por ID (Nombre, Apellido, Email)</h6>
+                                        <div id="res-method-1" class="text-muted">Esperando datos...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card shadow-sm border-0 border-start border-5 border-success h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-success fw-bold">2. Lectura por form.elements (Teléfono)</h6>
+                                        <div id="res-method-2" class="text-muted">Esperando datos...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card shadow-sm border-0 border-start border-5 border-warning h-100">
+                                    <div class="card-body">
+                                        <h6 class="text-warning fw-bold">3. Lectura por FormData (Ciudad)</h6>
+                                        <div id="res-method-3" class="text-muted">Esperando datos...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Historial de Usuarios -->
+                        <div class="card shadow-sm border-0 rounded-4 mt-4">
+                            <div class="card-header bg-secondary text-white rounded-top-4 py-3">
+                                <h5 class="mb-0"><i class="bi bi-list-ul me-2"></i>Historial de Usuarios</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Nombre Completo</th>
+                                                <th>Email</th>
+                                                <th>Teléfono</th>
+                                                <th>Ciudad</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="history-list">
+                                            <tr>
+                                                <td colspan="4" class="text-center text-muted py-4">No hay usuarios registrados</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "punto3",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Almacén de Personas con localStorage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,118 @@
+/* Variables de colores (Claro) */
+:root {
+    --bg-light: #f4f6f9;
+    --text-light: #2d3436;
+    --card-bg-light: #ffffff;
+    --border-light: #dfe6e9;
+    --header-bg-light: #ffffff;
+}
+
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.header-nav,
+.footer-nav,
+.card-main {
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+    background-color: var(--card-bg-light);
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    --bg-dark: #1a1a2e;
+    --text-dark: #e9ecef;
+    --card-bg-dark: #16213e;
+    --border-dark: #2a2a4a;
+    --header-bg-dark: #16213e;
+
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .header-nav,
+body.dark-mode .footer-nav {
+    background-color: var(--header-bg-dark) !important;
+    border-color: var(--border-dark) !important;
+    color: var(--text-dark);
+}
+
+body.dark-mode .card-main {
+    background-color: var(--card-bg-dark);
+    border-color: var(--border-dark);
+}
+
+body.dark-mode .table {
+    color: #ffffff !important;
+    --bs-table-color: #ffffff;
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--border-dark);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .table td,
+body.dark-mode .table th {
+    color: #ffffff !important;
+}
+
+body.dark-mode .table thead th {
+    border-bottom-color: var(--border-dark);
+    background-color: #0f3460;
+    color: #fff;
+}
+
+body.dark-mode .text-muted {
+    color: #a0aab2 !important;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: var(--text-dark);
+    border-color: #4a4e69;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #4a4e69;
+    color: #fff;
+}
+
+/* Ajustes visuales tabla */
+.table th {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos dinámicos y premium para el contenedor de JSON */
+.json-container {
+    background-color: #f8f9fa;
+    color: #343a40;
+    border-left: 4px solid #0d6efd; /* Acento azul primary */
+    border-radius: 0.5rem;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-mode .json-container {
+    background-color: rgba(15, 52, 96, 0.4);
+    color: #e9ecef;
+    border-left: 4px solid #e94560; /* Acento rojo/rosado vibrante */
+}
+
+/* Animaciones sutiles al pasar el mouse por las filas */
+.table tbody tr {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    transform: translateX(4px);
+    background-color: rgba(13, 110, 253, 0.03) !important;
+}
+
+body.dark-mode .table tbody tr:hover {
+    background-color: rgba(233, 69, 96, 0.05) !important;
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Informante | Diario Online</title>
+
+    <!-- Fuentes Tipográficas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- CABECERA -->
+    <header class="site-header" id="inicio">
+        <div class="container">
+            <div class="header-top">
+                <div class="header-date" id="current-date">Lunes, 13 de Mayo de 2026</div>
+                <div class="header-logo">
+                    <a href="#inicio">
+                        <h1>El Informante</h1>
+                    </a>
+                </div>
+                <div class="header-actions">
+                    <!-- Links sin funcionalidad removidos -->
+                </div>
+            </div>
+            <nav class="site-nav">
+                <ul class="nav-list">
+                    <li><a href="#politica">Política</a></li>
+                    <li><a href="#economia">Economía</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#deportes">Deportes</a></li>
+                    <li><a href="#cultura">Cultura</a></li>
+                    <li><a href="#internacional">Internacional</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- TICKER ÚLTIMA HORA -->
+    <div class="ticker-wrap">
+        <div class="ticker-label">Última Hora</div>
+        <div class="ticker-content">
+            <span class="ticker-item">El Banco Central anuncia nueva reducción en las tasas de interés</span>
+            <span class="ticker-item">Histórico descubrimiento arqueológico en el sur del país</span>
+            <span class="ticker-item">Tormentas severas provocan demoras en vuelos internacionales</span>
+            <span class="ticker-item">Las acciones tecnológicas lideran un repunte en Wall Street</span>
+            <span class="ticker-item">Se aprueba la nueva ley de protección de datos en la Unión Europea</span>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <div class="main-content">
+
+            <main>
+                <!-- HERO: Noticia Principal -->
+                <section class="hero-section" id="politica">
+                    <div class="hero-content">
+                        <span class="badge">Política</span>
+                        <h2 class="hero-title">Acuerdo histórico en la cumbre climática global marca un nuevo rumbo</h2>
+                        <p class="hero-subtitle">Líderes de 150 naciones firman un tratado vinculante para reducir las
+                            emisiones de carbono a la mitad para el año 2035, estableciendo un fondo de transición
+                            energética sin precedentes.</p>
+                        <div class="meta">
+                            <span>Por Elena Márquez</span>
+                            <span>•</span>
+                            <span>Hace 2 horas</span>
+                        </div>
+                        <a href="articulo-1.html" class="read-more">Leer artículo completo</a>
+                    </div>
+                </section>
+
+                <!-- GRID DE NOTICIAS (9 Artículos) -->
+                <section class="news-grid">
+
+                    <!-- Noticia 1 (Destacada en 2 columnas) -->
+                    <article class="article-card featured-col" id="economia">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/eco1/600/400" alt="Bolsa de valores"
+                                class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge econ">Economía</span>
+                            <h3 class="article-title"><a href="articulo-2.html">Los mercados emergentes muestran una
+                                    sorprendente resiliencia ante la inflación</a></h3>
+                            <p class="article-excerpt">A pesar de las previsiones pesimistas de los analistas de Wall
+                                Street, las principales economías latinoamericanas reportan un crecimiento sostenido
+                                impulsado por la exportación de materias primas.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Carlos Fuentes</span> • <span>17 May 2026</span>
+                            </div>
+                            <a href="articulo-2.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 2 -->
+                    <article class="article-card" id="tecnologia">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/tech1/400/300" alt="Inteligencia Artificial"
+                                class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge tech">Tecnología</span>
+                            <h3 class="article-title"><a href="articulo-3.html">La nueva generación de procesadores
+                                    cuánticos ya es una realidad comercial</a></h3>
+                            <p class="article-excerpt">Una startup europea logra miniaturizar el sistema de
+                                enfriamiento, permitiendo la instalación de computadoras cuánticas en centros de datos
+                                tradicionales.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Laura Sánchez</span> • <span>16 May 2026</span>
+                            </div>
+                            <a href="articulo-3.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 3 -->
+                    <article class="article-card" id="deportes">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/sport1/400/300" alt="Estadio de fútbol"
+                                class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge sport">Deportes</span>
+                            <h3 class="article-title"><a href="articulo-4.html">Final épica: Remontada histórica en el
+                                    último minuto del campeonato</a></h3>
+                            <p class="article-excerpt">El equipo local logró revertir un 0-2 en contra durante el tiempo
+                                de descuento, coronándose campeón tras cinco años de sequía.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Diego Ramos</span> • <span>16 May 2026</span>
+                            </div>
+                            <a href="articulo-4.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 4 -->
+                    <article class="article-card" id="cultura">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/cult/400/300" alt="Museo" class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge cult">Cultura</span>
+                            <h3 class="article-title"><a href="articulo-5.html">El Museo de Bellas Artes inaugura la
+                                    retrospectiva inmersiva más grande del siglo</a></h3>
+                            <p class="article-excerpt">Una combinación de proyecciones holográficas y obras originales
+                                ofrece una nueva mirada a la vida y obra de los maestros del renacimiento.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Ana Vidal</span> • <span>15 May 2026</span>
+                            </div>
+                            <a href="articulo-5.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 5 -->
+                    <article class="article-card" id="internacional">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/int/400/300" alt="Elecciones" class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge int">Internacional</span>
+                            <h3 class="article-title"><a href="articulo-6.html">Elecciones anticipadas en el parlamento
+                                    generan incertidumbre regional</a></h3>
+                            <p class="article-excerpt">Tras la disolución de la coalición gobernante, los analistas
+                                prevén un cambio drástico en las políticas de política exterior del país nórdico.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Redacción</span> • <span>15 May 2026</span>
+                            </div>
+                            <a href="articulo-6.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 6 -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/pol2/400/300" alt="Debate político"
+                                class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge">Política</span>
+                            <h3 class="article-title"><a href="articulo-7.html">Avanza el proyecto de reforma laboral en
+                                    el congreso con votos divididos</a></h3>
+                            <p class="article-excerpt">La cámara baja dio media sanción al polémico proyecto tras una
+                                maratónica sesión de 18 horas.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Martín López</span> • <span>14 May 2026</span>
+                            </div>
+                            <a href="articulo-7.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 7 -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/tech2/400/300" alt="Vehículo eléctrico"
+                                class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge tech">Tecnología</span>
+                            <h3 class="article-title"><a href="articulo-8.html">Las baterías de estado sólido prometen
+                                    revolucionar la industria automotriz</a></h3>
+                            <p class="article-excerpt">El nuevo desarrollo duplica la autonomía de los vehículos
+                                eléctricos y reduce el tiempo de carga a solo cinco minutos.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Laura Sánchez</span> • <span>14 May 2026</span>
+                            </div>
+                            <a href="articulo-8.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 8 -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/eco2/400/300" alt="Criptomonedas" class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge econ">Economía</span>
+                            <h3 class="article-title"><a href="articulo-9.html">Criptomonedas reguladas: el nuevo marco
+                                    legal entra en vigencia hoy</a></h3>
+                            <p class="article-excerpt">Las instituciones financieras ahora deben aplicar estrictos
+                                controles de transparencia a todas las transacciones con activos digitales.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Carlos Fuentes</span> • <span>13 May 2026</span>
+                            </div>
+                            <a href="articulo-9.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 9 -->
+                    <article class="article-card">
+                        <div class="article-img-wrap">
+                            <img src="https://picsum.photos/seed/cult2/400/300" alt="Premio Nobel" class="article-img">
+                        </div>
+                        <div class="article-content">
+                            <span class="badge cult">Cultura</span>
+                            <h3 class="article-title"><a href="articulo-10.html">Premio Nobel de Literatura sorprende al
+                                    elegir a un autor de ciencia ficción</a></h3>
+                            <p class="article-excerpt">Por primera vez en la historia, la academia sueca reconoce la
+                                trayectoria de un exponente del género especulativo puro.</p>
+                            <div class="meta meta-dark">
+                                <span>Por Ana Vidal</span> • <span>13 May 2026</span>
+                            </div>
+                            <a href="articulo-10.html" class="read-more" style="color: var(--color-primary);">Leer
+                                más</a>
+                        </div>
+                    </article>
+
+                </section>
+            </main>
+
+            <!-- BARRA LATERAL (SIDEBAR) -->
+            <aside class="sidebar">
+
+                <!-- Widget Clima -->
+                <div class="widget weather-widget">
+                    <div class="weather-icon">⛅</div>
+                    <div class="weather-temp">18°C</div>
+                    <div class="weather-city">Buenos Aires</div>
+                    <p style="font-size: 0.85rem; color: var(--color-text-light); margin-top: 5px;">Humedad: 65% |
+                        Viento: 12 km/h</p>
+                </div>
+
+                <!-- Widget Más Leídas -->
+                <div class="widget">
+                    <h3 class="widget-title">Lo más leído</h3>
+                    <div class="trending-list">
+                        <article class="trending-item">
+                            <h4 class="trending-title"><a href="articulo-5.html">El secreto revelado detrás del
+                                    misterioso monolito encontrado en el desierto</a></h4>
+                            <div class="meta meta-dark">Cultura</div>
+                        </article>
+                        <article class="trending-item">
+                            <h4 class="trending-title"><a href="articulo-10.html">Cinco hábitos diarios que los expertos
+                                    recomiendan para mejorar el sueño</a></h4>
+                            <div class="meta meta-dark">Salud</div>
+                        </article>
+                        <article class="trending-item">
+                            <h4 class="trending-title"><a href="articulo-10.html">Se desploma la plataforma de streaming
+                                    más popular a nivel mundial</a></h4>
+                            <div class="meta meta-dark">Tecnología</div>
+                        </article>
+                        <article class="trending-item">
+                            <h4 class="trending-title"><a href="articulo-10.html">Análisis: Qué significa el nuevo
+                                    tratado comercial para los precios locales</a></h4>
+                            <div class="meta meta-dark">Economía</div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Widget Publicidad -->
+                <div class="ad-space">
+                    <a href="https://ejemplo.com" target="_blank"
+                        style="display:block; width:100%; height:100%; text-decoration:none; color:inherit; display:flex; align-items:center; justify-content:center;">
+                        Espacio Publicitario
+                        <br>300 x 300
+                    </a>
+                </div>
+
+                <!-- Widget Opinión -->
+                <div class="widget">
+                    <h3 class="widget-title">Columnas de Opinión</h3>
+                    <article
+                        style="margin-bottom: 15px; border-bottom: 1px dashed var(--color-border); padding-bottom: 15px;">
+                        <h4 style="font-family: var(--font-title); margin-bottom: 5px;"><a href="articulo-10.html">El
+                                desafío de la matriz energética en el siglo XXI</a></h4>
+                        <span style="font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">Mario
+                            Benedetto</span>
+                    </article>
+                    <article>
+                        <h4 style="font-family: var(--font-title); margin-bottom: 5px;"><a href="articulo-10.html">La
+                                educación frente a la avalancha de la Inteligencia Artificial</a></h4>
+                        <span style="font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">Dra. Silvia
+                            Gómez</span>
+                    </article>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 1fr 1fr;">
+
+                <!-- Columna 1: Info -->
+                <div>
+                    <h1 style="font-family: var(--font-title); font-size: 2rem; margin-bottom: 15px;">El Informante</h1>
+                    <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                        Periodismo independiente, riguroso y comprometido con la verdad desde 1924.
+                    </p>
+                    <div style="display: flex; gap: 15px;">
+                        <!-- Redes sociales funcionales -->
+                        <a href="https://x.com" target="_blank"
+                            style="background: rgba(255,255,255,0.1); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">X</a>
+                        <a href="https://facebook.com" target="_blank"
+                            style="background: rgba(255,255,255,0.1); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">fb</a>
+                        <a href="https://instagram.com" target="_blank"
+                            style="background: rgba(255,255,255,0.1); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">ig</a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Links -->
+                <div>
+                    <h4 class="footer-title">Secciones</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Portada</a></li>
+                        <li><a href="#politica">Política Nacional</a></li>
+                        <li><a href="#economia">Economía y Mercados</a></li>
+                        <li><a href="#deportes">Deportes</a></li>
+                        <li><a href="articulo-10.html">Opinión y Editorial</a></li>
+                        <li><a href="mailto:contacto@elinformante.com">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- El formulario de suscripción fue removido según tu instrucción -->
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Diario El Informante S.A. Todos los derechos reservados. El diseño y contenido de esta
+                    página son simulados con fines de desarrollo.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

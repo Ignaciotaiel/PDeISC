@@ -1,0 +1,11 @@
+.product-img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+.product-title {
+  color: var(--accent-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Café - Calculadora Brew</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/main.css">
+  <style>
+    .result-box {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      text-align: center;
+      padding: 2rem;
+      border: 2px dashed var(--glass-border);
+      border-radius: 12px;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+    }
+    .result-box.active {
+      border-color: var(--accent-color);
+      background-color: rgba(201, 139, 67, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- nav_placeholder -->
+  
+  <main class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 150px);">
+    
+    <div class="split-container w-100">
+      <!-- Lado Informativo -->
+      <div class="split-info" style="background-image: url('https://images.unsplash.com/photo-1495474472204-518605ec9ae1?q=80&w=1000&auto=format&fit=crop');">
+        <div class="split-info-content">
+          <h1 class="display-4 text-white mb-4">La Regla de Oro</h1>
+          <p class="lead mb-4">Para lograr una extracción perfecta, la proporción entre el café molido y el agua es fundamental.</p>
+          <hr class="border-light opacity-25 my-4">
+          <h3 class="text-white">Ratio 1:15</h3>
+          <p>Por cada gramo de café, recomendamos utilizar 15 mililitros de agua. Esto asegura que la bebida tenga el cuerpo y dulzor ideales, sin resultar amarga ni aguada.</p>
+          <p><em>Ideal para métodos de filtrado como V60, Chemex o Prensa Francesa.</em></p>
+        </div>
+      </div>
+
+      <!-- Lado del Formulario -->
+      <div class="split-form">
+        <h2 class="mb-4">Calcula tu Receta</h2>
+        <p class="text-muted mb-5">Ingresa los gramos de café que tienes disponibles y te diremos el agua exacta a utilizar.</p>
+        
+        <div class="mb-4">
+          <label for="input-cafe" class="form-label fs-5">Gramos de café molido:</label>
+          <input type="number" class="form-control form-control-lg" id="input-cafe" placeholder="Ej. 20" min="1">
+        </div>
+        
+        <button id="btn-calcular-agua" class="btn btn-premium w-100 btn-lg">CALCULAR AGUA</button>
+        
+        <div id="resultado-agua" class="result-box mt-5">
+          -- ml
+        </div>
+      </div>
+    </div>
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Lumina Café.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.css"></script>
+  <script type="module" src="/contexto/themeToggle.js"></script>
+  <script type="module" src="/scripts/datos.js"></script>
+</body>
+</html>
